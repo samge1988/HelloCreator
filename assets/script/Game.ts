@@ -43,12 +43,6 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     controlHintLabel: cc.Label = null;
 
-    @property({multiline: true})
-    keyboardHint = '';
-
-    @property({multiline: true})
-    touchHint = '';
-
     groundY: number = 0;
 
     currentStar = null;
@@ -66,7 +60,7 @@ export default class NewClass extends cc.Component {
     {
         this.groundY = this.ground.y + this.ground.height;
 
-        let hintText = cc.sys.isMobile ? this.touchHint : this.keyboardHint;
+        let hintText = cc.sys.isMobile ? '触摸使小怪兽移动' : '使用左右键或AD键操作';
         this.controlHintLabel.string = hintText;
     }
 
@@ -77,6 +71,8 @@ export default class NewClass extends cc.Component {
         this.btnNode.setPositionX(3000);
         this.gameOverNode.active = false;
         this.player.startMoveAt(cc.p(0, this.groundY));
+
+        this.spawnNewStar();
     }
 
     spawnNewStar ()

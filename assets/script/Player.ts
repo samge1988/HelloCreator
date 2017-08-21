@@ -36,7 +36,7 @@ export default class NewClass extends cc.Component {
 
     onLoad()
     {
-        //this.enabled = false;
+        this.enabled = false;
         this.minPosX = -this.node.parent.width / 2;
         this.maxPosX = this.node.parent.width / 2;
 
@@ -80,24 +80,24 @@ export default class NewClass extends cc.Component {
             }
         }, this.node);
 
-        cc.eventManager.addListener({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            onTouchBegan: function(touch, event) {
-                var touchLoc = touch.getLocation();
-                if (touchLoc.x >= cc.winSize.width/2) {
-                    self.accLeft = false;
-                    self.accRight = true;
-                } else {
-                    self.accLeft = true;
-                    self.accRight = false;
-                }
-                return true;
-            },
-            onTouchEnded: function(touch, event) {
-                self.accLeft = false;
-                self.accRight = false;
-            }
-        }, self.node);
+        // cc.eventManager.addListener({
+        //     event: cc.EventListener.TOUCH_ONE_BY_ONE,
+        //     onTouchBegan: function(touch, event) {
+        //         var touchLoc = touch.getLocation();
+        //         if (touchLoc.x >= cc.winSize.width/2) {
+        //             self.accLeft = false;
+        //             self.accRight = true;
+        //         } else {
+        //             self.accLeft = true;
+        //             self.accRight = false;
+        //         }
+        //         return true;
+        //     },
+        //     onTouchEnded: function(touch, event) {
+        //         self.accLeft = false;
+        //         self.accRight = false;
+        //     }
+        // }, self.node);
     }
 
     setJumpAction() 

@@ -1,9 +1,11 @@
 const {ccclass, property} = cc._decorator;
 
+import ScoreFX from "./ScoreFX";
+
 @ccclass
 export default class NewClass extends cc.Component {
 
-    scoreFX = null;
+    scoreFX: ScoreFX = null;
     
     init (scoreFX) {
         this.scoreFX = scoreFX;
